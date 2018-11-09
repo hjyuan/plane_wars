@@ -60,7 +60,7 @@ class Enemy(GameSprite):
         super().__init__("./images/enemy1.png")
 
         # 2. 指定敌机的初始随机速度
-        self.speed = random.randint(1, 3)
+        self.speed = random.randint(1, 5)
 
         # 3. 指定敌机的初始随机位置
         self.rect.bottom = 0
@@ -75,12 +75,13 @@ class Enemy(GameSprite):
 
         # 2. 判断是否飞出屏幕，如果是，需要从精灵组删除敌机
         if self.rect.y >= SCREEN_RECT.height:
-            print("飞出屏幕，需要从精灵组删除...")
+            # print("飞出屏幕，需要从精灵组删除...")
 
             self.kill()
 
     def __del__(self):
-        print("敌机挂了 %s" % self.rect)
+        # print("敌机挂了 %s" % self.rect)
+        pass
 
 
 class Hero(GameSprite):
@@ -110,7 +111,7 @@ class Hero(GameSprite):
             self.rect.right = SCREEN_RECT.right
 
     def fire(self):
-        print("发射子弹...")
+        # print("发射子弹...")
 
         for i in (0, 1, 2):
             # 1. 创建子弹精灵
@@ -130,7 +131,7 @@ class Bullet(GameSprite):
     def __init__(self):
 
         # 调用父类方法，设置子弹图片，设置初始速度
-        super().__init__("./images/bullet1.png", -2)
+        super().__init__("./images/bullet1.png", -3)
 
     def update(self):
 
@@ -142,4 +143,5 @@ class Bullet(GameSprite):
             self.kill()
 
     def __del__(self):
-        print("子弹被销毁...")
+        # print("子弹被销毁...")
+        pass
